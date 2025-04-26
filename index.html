@@ -176,77 +176,41 @@
         100% { background-position: 0% 50% }
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
+       
+        /* Hero Section - Mobile First */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 20px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(108, 92, 231, 0.1), rgba(253, 121, 168, 0.1));
-            z-index: -1;
-        }
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+        z-index: 2;
+    }
 
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-content h1 span {
+    .hero-content h1 span {
             color: var(--primary);
         }
 
-        .hero-content p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
+     /* Button Styles */
 
-        .hero-image {
-            position: absolute;
-            right: 100px;
-            top: 50%;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: url('images/christotle.jpg') center/cover;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            animation: float 6s ease-in-out infinite;
-            transform: translateY(-50%) perspective(1000px);
-            transform-style: preserve-3d;
-        }
-
-        .hero-image:hover {
-        transform: translateY(-50%) rotateY(15deg) rotateX(5deg);
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(-50%) translateX(0);
-            }
-            50% {
-                transform: translateY(-50%) translateX(20px);
-            }
-        }
-
-        /* Button Styles */
-        .btn {
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+    }
+    
+     .btn {
             display: inline-block;
             padding: 12px 30px;
             background: var(--primary);
@@ -298,6 +262,177 @@
         .btn:hover::before {
             left: 100%;
         }
+
+        /*  Hero Image styles */
+    .hero-image-container {
+        position: relative;
+        width: 280px;
+        height: 280px;
+        margin: 30px auto;
+        z-index: 2;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: url('images/christotle.jpg') center/cover;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        animation: float-mobile 6s ease-in-out infinite;
+        transform: perspective(1000px);
+        transform-style: preserve-3d;
+    }
+
+    .hero-image:hover {
+        transform: perspective(1000px) rotateY(15deg) rotateX(5deg);
+    }
+
+    @keyframes float-mobile {
+        0%, 100% {
+            transform: perspective(1000px) translateY(0) translateX(0);
+        }
+        50% {
+            transform: perspective(1000px) translateY(-10px) translateX(10px);
+        }
+    }
+
+    /* Tablet (768px and up) */
+    @media (min-width: 768px) {
+        .hero-image-container {
+    width: 350px;
+    height: 350px;
+  }
+  
+  /* Keep mobile animation for tablet */
+  .hero-image {
+    animation: float-mobile 6s ease-in-out infinite;
+  }
+
+        .hero-content h1 {
+            font-size: 2.1em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+        .btn-outline {
+            margin-top: 0;
+            margin-left: 15px;
+        }
+    }
+
+    /* Desktop (992px and up) */
+    @media (min-width: 992px) {
+        .hero {
+        flex-direction: row;
+        text-align: left;
+        padding: 0 100px;
+        justify-content: space-between;
+        align-items: center; /* Add this to vertically center content */
+        min-height: 100vh; /* Ensure full viewport height */
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin-bottom: 0;
+        padding-top: 0; /* Reset any mobile padding */
+    }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+        display: block;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: flex-start;
+    }
+
+        
+        .hero-image {
+            margin: 0;
+            animation: float-desktop 6s ease-in-out infinite;
+        }
+
+        @keyframes float-desktop {
+            0%, 100% {
+                transform: perspective(1000px) translateY(0) translateX(0);
+            }
+            50% {
+                transform: perspective(1000px) translateY(0) translateX(20px);
+            }
+        }
+
+        .hero-image:hover {
+            transform: perspective(1000px) translateY(0) rotateY(15deg) rotateX(5deg);
+        }
+    }
+
+    /* Large Desktop (1200px and up) */
+    @media (min-width: 1200px) {
+        .hero-image-container {
+            right: 150px;
+        }
+    }
+
+    /* Mobile Landscape */
+    @media (max-height: 500px) and (orientation: landscape) {
+        .hero {
+            flex-direction: row;
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+
+        .hero-image-container {
+            width: 200px;
+            height: 200px;
+            margin-left: 30px;
+        }
+
+        .hero-content {
+            max-width: 60%;
+            margin-bottom: 0;
+        }
+
+        .hero-image {
+    animation: float-landscape 6s ease-in-out infinite;
+  }
+  
+  @keyframes float-landscape {
+    0%, 100% {
+      transform: perspective(1000px) translateY(0) translateX(0);
+    }
+    50% {
+      transform: perspective(1000px) translateY(5px) translateX(10px);
+    }
+  }
+    }
 
         /* Section Styles */
         section {
@@ -1305,6 +1440,146 @@
     }
   }
 
+  /* Logo special div styles */
+  .design-overlay .btn i {
+        margin-right: 8px;
+    }
+    
+    .design-badges {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .design-badges span {
+        background: rgba(255,255,255,0.15);
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.7em;
+        backdrop-filter: blur(5px);
+    }
+    
+    .design-badges i {
+        color: var(--accent);
+    }
+
+
+    /* Projects Grid Styles */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.2);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .project-header h3 {
+    color: var(--primary);
+    font-size: 1.3em;
+    margin: 0;
+  }
+
+  .tech-stack {
+    background: var(--secondary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+
+  .project-description {
+    color: #666;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .project-link {
+    background: var(--primary);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-link:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+  }
+
+  .project-link i {
+    font-size: 0.8em;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .code-link {
+    color: var(--dark);
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+  }
+
+  .code-link:hover {
+    color: var(--primary);
+    transform: scale(1.2);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .project-card {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
     </style>
 </head>
 <body>
@@ -1315,7 +1590,7 @@
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">iam<span>christotle</span></a>
+        <a href="#" class="logo">chris<span>totle</span></a>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
@@ -1330,22 +1605,24 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="animate">Hi, I'm a <span>Full Stack Developer</span></h1>
-            <p class="animate delay-1">I specialize in MERN stack development, creating stunning graphic designs, and producing engaging video content. Let's build something amazing together!</p>
-            <div class="animate delay-2">
-                <a href="#contact" class="btn">Hire Me</a>
-                <a href="#development" class="btn btn-outline">My Work</a>
-            </div>
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="animate">Hi, I'm a <span>Full Stack Developer</span></h1>
+        <p class="animate delay-1">I specialize in MERN stack development, creating stunning graphic designs, and producing engaging video content. Let's build something amazing together!</p>
+        <div class="hero-buttons animate delay-2">
+            <a href="#contact" class="btn">Hire Me</a>
+            <a href="#development" class="btn btn-outline">My Work</a>
         </div>
+    </div>
 
-        <!-- Hero Image -->
-        <div class="hero-image animate delay-3"></div>
-        
-        <!-- Particles -->
-        <div class="particles" id="particles"></div>
-    </section>
+    <!-- Hero Image -->
+    <div class="hero-image-container animate delay-3">
+        <div class="hero-image"></div>
+    </div>
+    
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+</section>
 
     <!-- Development Section -->
     <section class="development" id="development">
@@ -1353,6 +1630,116 @@
             <h2 class="animate">Development Skills</h2>
             <p class="animate delay-1">I build responsive, modern websites and web applications using the MERN stack (MongoDB, Express, React, Node.js) and other cutting-edge technologies.</p>
         </div>
+
+        <div class="projects-grid">
+  <!-- Project 1 -->
+  <div class="project-card animate">
+    <div class="project-header">
+      <h3>E-Commerce Platform</h3>
+      <span class="tech-stack">MERN Stack</span>
+    </div>
+    <p class="project-description">Full-featured Marketplace with payment gateway integration:<br />
+        * Paypal<br />
+        * Stripe<br />
+        * Crypto.<br /> 
+        Smart login/signup with:<br />
+        * Facebook<br />
+        * Google<br /> 
+        * LinkedIn. <br />
+        Inventory management, and admin dashboard. Currently 70K+ users.</p>
+    <div class="project-footer">
+      <a href="https://totlesoft.com" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Live Site
+      </a>
+      <div class="project-links">
+        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-card animate delay-1">
+    <div class="project-header">
+      <h3>High-Converting Vendor Sales Portal</h3>
+      <span class="tech-stack">HTML + CSS + JavaScript</span>
+    </div>
+    <p class="project-description">Developed high-converting sales funnels compatible with Major Affiliate Platforms:<br />
+        * ClickBank<br />
+        * ShareASale<br />
+        * JVZoo<br />
+        * Warrior+Plus etc<br />
+
+        Key Achievements:<br />
+• Pages meet platform guidelines<br />
+• Helped vendors improve conversion rates through strategic testing<br />
+• Implemented smooth payment flows for better user experience
+    </p>
+    <div class="project-footer">
+      <a href="https://canvacreatorsplaybook.totlesoft.com/" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Live Page
+      </a>
+      <div class="project-links">
+        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="project-card animate delay-2">
+    <div class="project-header">
+      <h3>B2B Platform for Oilfield Services & Procurement</h3>
+      <span class="tech-stack">React</span>
+    </div>
+    <p class="project-description">Developed a customized digital marketplace to streamline operations between energy producers and service providers. The platform featured:<br />
+        ✓ Automated chemical/haulage bidding<br />
+        ✓ Fuel procurement system<br />
+        ✓ Rig equipment management<br />
+        ✓ Compliance automation<br />
+        
+        Key Outcomes:<br />
+        • Processed $1.2M in contracts - Q1<br />
+        • Reduced procurement lead times by 40%<br />
+        </p>
+    <div class="project-footer">
+      <a href="https://ohkoil.com" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Live Site
+      </a>
+      <div class="project-links">
+        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="project-card animate delay-3">
+    <div class="project-header">
+      <h3>TAP-TO-EARN CRYPTO GAME ENGINE</h3>
+      <span class="tech-stack">Solidity/Web3.js + Node.js + WebSockets</span>
+    </div>
+    <p class="project-description">Built a viral Telegram web app with integrated crypto wallet connectivity (MetaMask/WalletConnect) featuring:<br />
+        • Automated token distribution via smart contracts<br />
+        • Anti-bot verification system<br />
+        • Real-time mining leaderboards<br />
+        • White paper documentation system<br />
+        Processed 28,000+ daily transactions during peak engagement.</p>
+    <div class="project-footer">
+      <a href="https://etstcoin.lol" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Live Site
+      </a>
+      <div class="project-links">
+        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
         
         <div class="slider-container animate delay-2">
             <div class="slider">
@@ -1451,7 +1838,7 @@
                 <div class="design-overlay">
                     <h3>Brand Identity</h3>
                     <p>Complete brand package including logo, colors, and typography</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
                 </div>
             </div>
             <div class="design-item animate delay-1">
@@ -1459,7 +1846,7 @@
                 <div class="design-overlay">
                     <h3>Marketing Materials</h3>
                     <p>Brochures, flyers, and promotional content</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
                 </div>
             </div>
             <div class="design-item animate delay-2">
@@ -1467,7 +1854,7 @@
                 <div class="design-overlay">
                     <h3>Web Graphics</h3>
                     <p>Custom illustrations and UI elements for websites</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
                 </div>
             </div>
             <div class="design-item animate delay-3">
@@ -1475,7 +1862,7 @@
                 <div class="design-overlay">
                     <h3>Social Media Content</h3>
                     <p>Engaging posts and banners for social platforms</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
                 </div>
             </div>
             <div class="design-item animate delay-4">
@@ -1483,7 +1870,7 @@
                 <div class="design-overlay">
                     <h3>Print Design</h3>
                     <p>Business cards, letterheads, and packaging</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
                 </div>
             </div>
             <div class="design-item animate delay-5">
@@ -1491,7 +1878,29 @@
                 <div class="design-overlay">
                     <h3>Infographics</h3>
                     <p>Data visualization and information design</p>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
+                </div>
+            </div>
+            <div class="design-item animate delay-5">
+                <img src="https://i.ibb.co/TxvTR7F4/photo-anim-gif.gif" alt="Design Project 7">
+                <div class="design-overlay">
+                    <h3>Product Design</h3>
+                    <p>Product Pack design and packaging</p>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn">Let's Meet</a>
+                </div>
+            </div>
+            <div class="design-item animate delay-5">
+                <img src="images/design8.jpg" alt="Christotle - Premium Logo Designs">
+                <div class="design-overlay">
+                    <h3>Logo & Brand Identity</h3>
+                    <p>Strategic design that communicates your value instantly</p>
+                    <a href="https://calendly.com/agholorchristotle/book-demo" target="_blank" class="btn" onclick="trackLogoConsultation()">
+                        <i class="fas fa-pen-fancy"></i> Get Your Custom Logo
+                    </a>
+                    <div class="design-badges">
+                        <span><i class="fas fa-bolt"></i> 3 Concepts</span>
+                        <span><i class="fas fa-infinity"></i> Unlimited Revisions</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1544,6 +1953,19 @@
                     <a href="#" class="btn">Watch Video</a>
                 </div>
             </div>
+            <div class="video-card animate delay-2">
+                <div class="video-thumbnail">
+                    <img src="images/video4.jpg" alt="Video Project 4">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3>Social Media Ads</h3>
+                    <p>Short, engaging videos optimized for social media platforms.</p>
+                    <a href="#" class="btn">Watch Video</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1555,13 +1977,11 @@
         </div>
         
         <div class="social-links">
-            <a href="#" class="social-link github animate delay-2"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link facebook animate"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link youtube animate delay-1"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link medium animate"><i class="fab fa-medium-m"></i></a>
-            <a href="#" class="social-link pinterest animate delay-1"><i class="fab fa-pinterest-p"></i></a>
-            <a href="#" class="social-link linkedin animate delay-3"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link telegram animate delay-4"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://github.com/johnchristotle" target="_blank" class="social-link github animate delay-2"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/christotleagholor" target="_blank" class="social-link facebook animate"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@makemoneywithchristotle" target="_blank" class="social-link youtube animate delay-1"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/christotleagholor" target="_blank" class="social-link linkedin animate delay-3"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/johnchristotle" target="_blank" class="social-link telegram animate delay-4"><i class="fab fa-telegram-plane"></i></a>
         </div>
     </section>
 
@@ -1970,6 +2390,14 @@
       }
     `, styleSheet.cssRules.length);
   </script>
+
+  <!--- Logo Script -->
+  <script>
+    function trackLogoConsultation() {
+        // Add analytics tracking here
+        console.log("Logo consultation booked");
+    }
+</script>
 </body>
 </html>
 
