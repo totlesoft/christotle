@@ -1580,6 +1580,577 @@
     }
   }
 
+
+  /* Calendar Booking Section */
+.booking-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  margin: 5rem auto;
+  max-width: 800px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.calendar-header h2 {
+  font-size: 2.2rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #6c5ce7, #0984e3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.calendar-visual {
+  position: relative;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 3rem;
+}
+
+.calendar-day {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
+  animation-delay: calc(var(--delay) * 1s);
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.calendar-day.active {
+  background: #6c5ce7;
+  color: white;
+  transform: translateY(0) scale(1.1);
+}
+
+.calendar-day.active span {
+  position: absolute;
+  bottom: -25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.calendar-cta {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.cta-core {
+  background: #6c5ce7;
+  color: white;
+  padding: 18px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.cta-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(108, 92, 231, 0.4);
+  border-radius: 50px;
+  z-index: 1;
+  top: 0;
+  animation: pulse 2s infinite;
+}
+
+.booking-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #636e72;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .calendar-grid {
+    gap: 8px;
+  }
+  .calendar-day {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.day-date {
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+  
+  .calendar-day.active .day-date {
+    color: white;
+  }
+
+  .today-text {
+    color: #3498db; /* Blue color */
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .calendar-day:nth-child(1), 
+.calendar-day:nth-child(7) {
+  background: #f8f9fa;
+}
+
+
+/* ===== ADVANTAGE SECTION ===== */
+.advantage-section {
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 2rem;
+}
+
+.advantage-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.advantage-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(var(--color), 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: rgb(var(--color));
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.advantage-list {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.advantage-list li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  list-style-type: none;
+}
+
+.advantage-list li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.7rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.advantage-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #636e72;
+}
+
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(108, 92, 231, 0.05);
+}
+
+.grid-item i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.advantage-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-guarantee {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 184, 148, 0.1);
+  color: #00b894;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.cta-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta-pulse:hover::before {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .advantage-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .advantage-card {
+    padding: 1.5rem;
+  }
+}
+
+ /* Calculator Styles */
+ .calculator-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin: 5rem auto;
+    max-width: 1200px;
+  }
+  
+  .calculator-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(45deg, #6c5ce7, #0984e3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .calculator-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 992px) {
+    .calculator-container {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  
+  .service-options {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.15);
+  }
+  
+  .service-card.active {
+    border-color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.03);
+  }
+  
+  .service-toggle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #dfe6e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  
+  .service-card.active .service-toggle {
+    border-color: #6c5ce7;
+    background: #6c5ce7;
+  }
+  
+  .toggle-switch {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .service-card.active .toggle-switch {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .service-content i {
+    font-size: 1.8rem;
+    color: #6c5ce7;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .service-content h3 {
+    margin: 0 0 1rem 0;
+    color: #2d3436;
+  }
+  
+  .service-content ul {
+    padding-left: 1.5rem;
+    color: #636e72;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .service-content li {
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  
+  .service-content li::before {
+    content: '•';
+    color: #6c5ce7;
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+  }
+  
+  .calculator-summary {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    align-self: start;
+    position: sticky;
+    top: 20px;
+  }
+  
+  .summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dfe6e9;
+  }
+  
+  .total-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6c5ce7;
+  }
+  
+  .total-price small {
+    font-size: 0.8rem;
+    color: #636e72;
+    font-weight: normal;
+  }
+  
+  .selected-services {
+    min-height: 150px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .empty-state {
+    color: #b2bec3;
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .service-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed #dfe6e9;
+  }
+  
+  .service-item:last-child {
+    border-bottom: none;
+  }
+  
+  .service-name {
+    color: #2d3436;
+  }
+  
+  .service-price {
+    font-weight: 600;
+  }
+  
+  .discount-banner {
+    background: rgba(0, 184, 148, 0.1);
+    color: #00b894;
+    padding: 0.8rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .discount-banner i {
+    font-size: 1.2rem;
+  }
+  
+  .calculator-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #6c5ce7, #0984e3);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .calculator-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+  }
+
     </style>
 </head>
 <body>
@@ -1590,7 +2161,7 @@
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">chris<span>totle</span></a>
+        <a href="#contact" class="logo">chris<span>totle</span></a>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
@@ -1632,6 +2203,35 @@
         </div>
 
         <div class="projects-grid">
+            
+             <!-- Project 1a -->
+  <div class="project-card animate">
+    <div class="project-header">
+      <h3>AI-Powered Text-to-Image Platform</h3>
+      <span class="tech-stack">MERN Stack</span>
+    </div>
+    <p class="project-description">Developed a responsive web app that transforms text prompts into high-quality visuals using:<br />
+        ✓ Batch processing<br />
+        ✓ Gallery system with download/export functionality<br />
+        
+        Key Features:<br />
+        • Resolution customization (512x512 to 2048x1024)<br />
+        • NSFW filtering<br />
+        To Introduce:<br />
+        • Credit-based system for usage tracking
+    </p>
+    <div class="project-footer">
+      <a href="https://totlesoft-imager-client.vercel.app/" target="_blank" class="project-link">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <div class="project-links">
+        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Project 1 -->
   <div class="project-card animate">
     <div class="project-header">
@@ -1716,29 +2316,6 @@
     </div>
   </div>
 
-  <!-- Project 4 -->
-  <div class="project-card animate delay-3">
-    <div class="project-header">
-      <h3>TAP-TO-EARN CRYPTO GAME ENGINE</h3>
-      <span class="tech-stack">Solidity/Web3.js + Node.js + WebSockets</span>
-    </div>
-    <p class="project-description">Built a viral Telegram web app with integrated crypto wallet connectivity (MetaMask/WalletConnect) featuring:<br />
-        • Automated token distribution via smart contracts<br />
-        • Anti-bot verification system<br />
-        • Real-time mining leaderboards<br />
-        • White paper documentation system<br />
-        Processed 28,000+ daily transactions during peak engagement.</p>
-    <div class="project-footer">
-      <a href="https://etstcoin.lol" target="_blank" class="project-link">
-        <i class="fas fa-external-link-alt"></i> Live Site
-      </a>
-      <div class="project-links">
-        <a href="https://github.com/johnchristotle" target="_blank" class="code-link" title="View Code">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
         
         <div class="slider-container animate delay-2">
@@ -1968,6 +2545,207 @@
             </div>
         </div>
     </section>
+
+    <section class="advantage-section">
+        <!-- Section 1: The Unfair Advantage -->
+        <div class="advantage-card">
+          <div class="advantage-icon" style="--color: #6c5ce7">
+            <i class="fas fa-chess-queen"></i>
+          </div>
+          <h3>1. The <span class="highlight">Triple-Threat</span> Edge</h3>
+          <p>I combine <strong>development</strong>, <strong>design</strong>, and <strong>video</strong> expertise that normally requires 3 specialists. Your project gets:</p>
+          <ul class="advantage-list">
+            <li>⚡ Pixel-perfect designs <em>that actually work in code</em></li>
+            <li>💡 Technical decisions informed by visual storytelling</li>
+            <li>🎬 Promo videos optimized for developer audiences</li>
+          </ul>
+        </div>
+      
+        <!-- Section 2: Time & Money Saved -->
+        <div class="advantage-card">
+          <div class="advantage-icon" style="--color: #00b894">
+            <i class="fas fa-stopwatch"></i>
+          </div>
+          <h3>2. <span class="highlight">Zero Communication Tax</span></h3>
+          <p>Forget the endless back-and-forth between your designer, developer, and video editor. With me:</p>
+          <div class="advantage-stats">
+            <div class="stat">
+              <div class="stat-number">68%</div>
+              <div class="stat-label">Faster turnaround</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">1/3</div>
+              <div class="stat-label">The typical cost</div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Section 3: Monetization Focus -->
+        <div class="advantage-card">
+          <div class="advantage-icon" style="--color: #fd79a8">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3>3. Built-In <span class="highlight">Revenue Engineering</span></h3>
+          <p>Every project includes monetization superchargers:</p>
+          <div class="advantage-grid">
+            <div class="grid-item">
+              <i class="fas fa-funnel-dollar"></i>
+              <span>High-converting flows</span>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-chart-line"></i>
+              <span>Analytics baked in</span>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-bolt"></i>
+              <span>Affiliate-ready</span>
+            </div>
+            <div class="grid-item">
+              <i class="fas fa-lock"></i>
+              <span>Payment security</span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- CTA with Animated Guarantee -->
+        <div class="advantage-cta">
+          <div class="cta-guarantee">
+            <i class="fas fa-shield-alt"></i>
+            <span>30-Day Performance Guarantee</span>
+          </div>
+          <a href="#contact" class="cta-pulse">
+            <span>Claim Your Free Strategy Session</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+    <!-- Calendar Booking Section -->
+<section class="booking-section">
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <h2>Let's Build Your Digital Success</h2>
+        <p>Select a slot for a free 30-minute consultation</p>
+      </div>
+      
+      <!-- Interactive Calendar Visual -->
+      <div class="calendar-visual">
+        <div class="calendar-grid" id="dynamicCalendar">
+            <!-- JavaScript will populate this -->
+          </div>
+        
+        <!-- Pulsing CTA Button -->
+        <a href="https://calendly.com/agholorchristotle/book-demo" class="calendar-cta" target="_blank">
+          <div class="cta-pulse"></div>
+          <div class="cta-core">
+            <i class="fas fa-calendar-check"></i>
+            <span>Book Now</span>
+          </div>
+        </a>
+      </div>
+      
+      <div class="booking-features">
+        <div class="feature">
+          <i class="fas fa-video"></i>
+          <span>Zoom/Google Meet</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-clock"></i>
+          <span>30/60-min slots</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-gift"></i>
+          <span>Free consultation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Package Calculator Section -->
+<section class="calculator-section">
+    <div class="calculator-header">
+      <h2>Build Your <span class="gradient-text">Custom Package</span></h2>
+      <p>Mix-and-match services for your perfect solution</p>
+    </div>
+    
+    <div class="calculator-container">
+      <!-- Service Selection -->
+      <div class="service-options">
+        <!-- Development -->
+        <div class="service-card" data-service="dev" data-price="1200">
+          <div class="service-toggle">
+            <div class="toggle-switch"></div>
+          </div>
+          <div class="service-content">
+            <i class="fas fa-code"></i>
+            <h3>MERN Stack Development</h3>
+            <ul>
+              <li>Full frontend + backend</li>
+              <li>API integrations</li>
+              <li>Database architecture</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Design -->
+        <div class="service-card" data-service="design" data-price="800">
+          <div class="service-toggle">
+            <div class="toggle-switch"></div>
+          </div>
+          <div class="service-content">
+            <i class="fas fa-paint-brush"></i>
+            <h3>Premium Design</h3>
+            <ul>
+              <li>UI/UX prototyping</li>
+              <li>Brand identity</li>
+              <li>Marketing assets</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Video -->
+        <div class="service-card" data-service="video" data-price="600">
+          <div class="service-toggle">
+            <div class="toggle-switch"></div>
+          </div>
+          <div class="service-content">
+            <i class="fas fa-video"></i>
+            <h3>Video Production</h3>
+            <ul>
+              <li>Promo videos</li>
+              <li>Tutorial editing</li>
+              <li>Motion graphics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Calculator Output -->
+      <div class="calculator-summary">
+        <div class="summary-header">
+          <h3>Your Package</h3>
+          <div class="total-price">
+            $<span id="totalAmount">0</span>
+            <small>/project</small>
+          </div>
+        </div>
+        
+        <div class="selected-services" id="selectedServices">
+          <p class="empty-state">Select services to begin</p>
+        </div>
+        
+        <div class="discount-banner">
+          <i class="fas fa-gift"></i>
+          <span>Bundle discount: <strong id="discountValue">25%</strong> OFF</span>
+        </div>
+        
+        <a href="https://calendly.com/agholorchristotle/book-demo" class="calculator-cta">
+          Get Started Now
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -2398,23 +3176,128 @@
         console.log("Logo consultation booked");
     }
 </script>
+
+
+<!--- Calendly Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const calendarGrid = document.getElementById('dynamicCalendar');
+      const daysToShow = 7; // Show 7 days including today
+      
+      // Clear existing static content
+      calendarGrid.innerHTML = '';
+      
+      // Generate days dynamically
+      for (let i = 0; i < daysToShow; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.style.setProperty('--delay', i * 0.1);
+        
+        const date = new Date();
+        date.setDate(date.getDate() + (i - 3)); // Center today
+        
+        // Format date (e.g., "Wed 19")
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const dayNum = date.getDate();
+        
+        // Highlight today
+        if (i === 3) { // 4th position is today (0-indexed 3)
+          dayElement.classList.add('active');
+          dayElement.innerHTML = `<span class="today-text">Today</span><div class="day-date">${dayName} ${dayNum}</div>`;
+        } else {
+          dayElement.innerHTML = `<div class="day-date">${dayName} ${dayNum}</div>`;
+        }
+        
+        calendarGrid.appendChild(dayElement);
+      }
+    });
+  </script>
+
+  <!--- Package Calculator script  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const serviceCards = document.querySelectorAll('.service-card');
+      const totalAmountEl = document.getElementById('totalAmount');
+      const selectedServicesEl = document.getElementById('selectedServices');
+      const discountValueEl = document.getElementById('discountValue');
+      
+      let selectedServices = [];
+      let baseTotal = 0;
+      let discount = 0;
+      
+      // Toggle services
+      serviceCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('active');
+          const service = this.getAttribute('data-service');
+          const price = parseInt(this.getAttribute('data-price'));
+          
+          if (this.classList.contains('active')) {
+            selectedServices.push({ service, price });
+          } else {
+            selectedServices = selectedServices.filter(item => item.service !== service);
+          }
+          
+          updateCalculator();
+        });
+      });
+      
+      function updateCalculator() {
+        // Calculate base total
+        baseTotal = selectedServices.reduce((sum, item) => sum + item.price, 0);
+        
+        // Apply discount for multiple services
+        if (selectedServices.length >= 2) {
+          discount = 0.25; // 25% discount
+          discountValueEl.textContent = '25%';
+        } else {
+          discount = 0;
+          discountValueEl.textContent = '0%';
+        }
+        
+        const finalTotal = baseTotal * (1 - discount);
+        
+        // Update UI
+        totalAmountEl.textContent = finalTotal.toFixed(0);
+        
+        // Update selected services list
+        if (selectedServices.length > 0) {
+          let html = '';
+          selectedServices.forEach(item => {
+            html += `
+              <div class="service-item">
+                <span class="service-name">${getServiceName(item.service)}</span>
+                <span class="service-price">$${item.price}</span>
+              </div>
+            `;
+          });
+          
+          // Add discount row if applicable
+          if (discount > 0) {
+            html += `
+              <div class="service-item" style="color: #00b894; font-weight: 600;">
+                <span class="service-name">Bundle Discount (${discount * 100}%)</span>
+                <span class="service-price">-$${(baseTotal * discount).toFixed(0)}</span>
+              </div>
+            `;
+          }
+          
+          selectedServicesEl.innerHTML = html;
+        } else {
+          selectedServicesEl.innerHTML = '<p class="empty-state">Select services to begin</p>';
+        }
+      }
+      
+      function getServiceName(service) {
+        switch(service) {
+          case 'dev': return 'MERN Development';
+          case 'design': return 'Premium Design';
+          case 'video': return 'Video Production';
+          default: return 'Service';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
 
-
-
-<!---   
-<div class="social-links">
-            <a href="#" class="social-link facebook animate"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link youtube animate delay-1"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link instagram animate delay-2"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link twitter animate delay-3"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link tiktok animate delay-4"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="social-link reddit animate delay-5"><i class="fab fa-reddit-alien"></i></a>
-            <a href="#" class="social-link medium animate"><i class="fab fa-medium-m"></i></a>
-            <a href="#" class="social-link pinterest animate delay-1"><i class="fab fa-pinterest-p"></i></a>
-            <a href="#" class="social-link github animate delay-2"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link linkedin animate delay-3"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link telegram animate delay-4"><i class="fab fa-telegram-plane"></i></a>
-        </div>
- -->
